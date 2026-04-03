@@ -1,0 +1,19 @@
+{
+  "products": {
+    "camera-1": {
+      "url": "https://www.amazon.com/dp/ASIN_HERE?tag=nx7group-20",
+      "type": "amazon",
+      "title": "عدسة ماكرو احترافية لتصوير العسل"
+    },
+    "academy-join": {
+      "url": "https://united-academy.com/ref/nasser",
+      "type": "academy",
+      "title": "انضم لفريق أكاديمية يونايتد في اليمن"
+    },
+    "vip-course": {
+      "url": "https://nx7group.com/private-link",
+      "type": "course",
+      "title": "دورة الأتمتة المتقدمة"
+    }
+  }
+}
