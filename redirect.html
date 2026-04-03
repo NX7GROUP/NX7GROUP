@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>جارٍ التحويل... | NX7 Group</title>
+    <script>
+        async function performRedirect() {
+            // 1. الحصول على المعرف من الرابط (مثلاً redirect.html?id=camera-1)
+            const urlParams = new URLSearchParams(window.location.search);
+            const linkId = urlParams.get('id');
+
+            if (!linkId) {
+                window.location.href = "index.html"; // العودة للرئيسية إذا لم يوجد ID
+                return;
+            }
+
+            try {
+                // 2. جلب البيانات من ملف JSON (الأتمتة هي من تحدثه)
+                const response = await fetch('links.json');
+                const data = await response.json();
+                
+                const target = data.products[linkId];
+
+                if (target && target.url) {
+                    // 3. التوجيه التلقائي
+                    window.location.replace(target.url);
+                } else {
+                    console.error("الرابط غير موجود");
+                    window.location.href = "index.html";
+                }
+            } catch (error) {
+                console.error("خطأ في جلب البيانات:", error);
+                window.location.href = "index.html";
+            }
+        }
+        window.onload = performRedirect;
+    </script>
+    <style>
+        body { background: #081229; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .loader { border: 3px solid #111e3c; border-top: 3px solid #f5a623; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+</body>
+</html>
