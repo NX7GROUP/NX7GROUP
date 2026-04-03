@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nx7group.com/sitemap.xml
