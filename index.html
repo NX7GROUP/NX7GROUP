@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NX7 Technology & Innovation Group - رائدة في حلول الأتمتة، الذكاء الاصطناعي، والتسويق الرقمي">
+    <title>NX7 Technology & Innovation Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* المتغيرات الأساسية للهوية البصرية */
+        :root {
+            --bg-color: #081229; /* أزرق تقني داكن */
+            --card-bg: #111e3c; /* أزرق أفتح للبطاقات */
+            --accent-gold: #f5a623; /* ذهبي (لون يعكس الفخامة) */
+            --text-main: #ffffff;
+            --text-muted: #a0aec0;
+            --border-radius: 24px; /* حواف مستديرة عصرية */
+            --transition: all 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* تنسيق الشريط العلوي */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8, 18, 41, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent-gold);
+        }
+
+        /* قسم البداية (Hero Section) */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #111e3c 0%, #081229 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 20px;
+            animation: slideUp 1s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: slideUp 1s ease forwards 0.3s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--accent-gold), #d48a1a);
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(245, 166, 35, 0.2);
+            animation: slideUp 1s ease forwards 0.6s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(245, 166, 35, 0.4);
+        }
+
+        /* قسم المنتجات والخدمات */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 80px 0 40px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 5%;
+            margin-bottom: 80px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.05);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .card.visible {
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card i {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* التذييل (Footer) والشروط */
+        footer {
+            background: #050b1a;
+            padding: 60px 5% 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+            transform: scale(1.2);
+        }
+
+        .legal-notice {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        .legal-notice p {
+            margin-bottom: 10px;
+        }
+
+        .amazon-disclosure {
+            background: rgba(245, 166, 35, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-top: 15px;
+            border: 1px dashed var(--accent-gold);
+        }
+
+        /* الحركات (Keyframes) */
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NX7<span>GROUP</span></div>
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>نبتكر المستقبل، <span>اليوم.</span></h1>
+        <p>NX7 Technology & Innovation Group <br> وجهتك للحلول البرمجية الذكية، الأتمتة المتقدمة، وأفضل المنتجات التقنية عبر التسويق بالعمولة.</p>
+        <a href="#explore" class="btn-primary">اكتشف خدماتنا</a>
+    </section>
+
+    <h2 class="section-title" id="explore">أقسام الشركة</h2>
+    
+    <section class="grid-container">
+        <div class="card">
+            <i class="fa-solid fa-code"></i>
+            <h3>البرمجيات والأتمتة</h3>
+            <p>تطوير أنظمة POS، حلول برمجية بخاصية (Offline-First)، وأدوات تداول مبنية على خوارزميات الذكاء الاصطناعي.</p>
+            <a href="#">المزيد <i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+
+        <div class="card">
+            <i class="fa-brands fa-amazon"></i>
+            <h3>اختيارات NX7 الذكية</h3>
+            <p>انتقاءات حصرية لأفضل المنتجات التقنية والمعدات الموصى بها والمبنية على أبحاث دقيقة لتطوير بيئة عملك.</p>
+            <a href="#">تصفح المنتجات <i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>أكاديمية ودورات</h3>
+            <p>روابط مباشرة لأفضل الدورات التدريبية والاشتراكات التقنية التي نعتمد عليها في تطوير فريقنا.</p>
+            <a href="#">استكشف الدورات <i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="legal-notice">
+            <p>&copy; 2026 <strong>NX7 Technology & Innovation Group</strong>. جميع الحقوق محفوظة.</p>
+            <p><a href="#" style="color: var(--text-muted); text-decoration: underline;">الشروط والأحكام</a> | <a href="#" style="color: var(--text-muted); text-decoration: underline;">سياسة الخصوصية</a></p>
+            
+            <div class="amazon-disclosure">
+                <p>As an Amazon Associate, I earn from qualifying purchases.</p>
+                <p>بصفتي شريكاً في أمازون، أربح من المبيعات المؤهلة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
